@@ -17,3 +17,7 @@ data Produto = Perecivel {
                            formaComercializacao :: FormaComercializacao  
                          }
               deriving Show
+
+produtoValido :: Produto -> Bool
+produtoValido (NaoPerecivel _ _ _ _ _) = True
+produtoValido (Perecivel _ _ anoValidade _ _) = anoValidade >= 2025
